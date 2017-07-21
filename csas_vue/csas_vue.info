@@ -1,0 +1,6 @@
+name = Csas vue
+description = Csas Vue library from cdn for js coding
+core = 7.x
+version = VERSION
+package = Csas
+configure = csas-vue-example

@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * Implements hook_library().
+ * for use
+ * $element['#attached']['library'][] = array('csas_vue', 'csas_vue_lib');
+ * &&
+ * drupal_add_library('csas_vue', 'csas_vue');
+ */
+function csas_vue_library() {
+  $libraries['csas_vue_lib'] = array(
+    'title' => 'Vue',
+    'version' => 'xXx',
+    'description' => 'https://vuejs.org',
+    'js' => array(
+      '//unpkg.com/vue/dist/vue.min.js' => array('type' => 'external'),
+    ),
+  );
+  return $libraries;
+}
+
+function csas_vue_menu() {
+  $items['csas-vue-example'] = array(
+    'title' => 'Csas vue example',
+    'page callback' => 'csas_vue_pages_example',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_CALLBACK,
+    'file' => 'csas_vue.pages.inc',
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function csas_vue_theme() {
+  return array(
+    'csas_vue_example' => array(
+      'variables' => array('opt' => NULL),
+      'template' => 'csas-vue-example',
+    ),
+  );
+}
